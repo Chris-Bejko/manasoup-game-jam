@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings : UIScreenBase
+namespace Manasoup.UI
 {
-        
+    public class Settings : UIScreenBase
+    {
+
+    }
 }

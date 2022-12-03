@@ -1,57 +1,61 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+
+namespace Manasoup.UI
 {
-    public List<UIScreenBase> uiScreens;
-
-    public static event Action<UIScreenID> OnUIPanelChanged;
-
-    private UIScreenID currentPanel;
-
-    private UIScreenID previousPanel;
-
-    public void Init()
+    public class UIManager : MonoBehaviour
     {
-        uiScreens = FindObjectsOfType<UIScreenBase>().ToList();
-        ChangeScreen(UIScreenID.MainMenu);
-    }
-    public void ChangeScreen(UIScreenID panel)
-    {
-        previousPanel = currentPanel;
-        currentPanel = panel;
+        public List<UIScreenBase> uiScreens;
 
-        foreach (var e in uiScreens)
+        public static event Action<UIScreenID> OnUIPanelChanged;
+
+        private UIScreenID currentPanel;
+
+        private UIScreenID previousPanel;
+
+        public void Init()
         {
-            e.gameObject.SetActive(e.screenID == panel);
+            uiScreens = FindObjectsOfType<UIScreenBase>().ToList();
+            ChangeScreen(UIScreenID.MainMenu);
+        }
+        public void ChangeScreen(UIScreenID panel)
+        {
+            previousPanel = currentPanel;
+            currentPanel = panel;
+
+            foreach (var e in uiScreens)
+            {
+                e.gameObject.SetActive(e.screenID == panel);
+            }
+
+            OnUIPanelChanged?.Invoke(currentPanel);
         }
 
-        OnUIPanelChanged?.Invoke(currentPanel);
+        ///for back button
+        public void LoadLastPanel()
+        {
+            if (previousPanel != UIScreenID.None)
+                ChangeScreen(previousPanel);
+            else
+                Debug.LogError("There is no screen previously loaded");
+        }
     }
 
-    ///for back button
-    public void LoadLastPanel()
+    public enum UIScreenID
     {
-        if (previousPanel != UIScreenID.None)
-            ChangeScreen(previousPanel);
-        else
-            Debug.LogError("There is no screen previously loaded");
+        None,
+        MainMenu,
+        Settings,
+        //Keep it going here
+
     }
-}
 
-public enum UIScreenID
-{
-    None,
-    MainMenu,
-    Settings,
+    public class UIScreenBase : MonoBehaviour
+    {
+        public UIScreenID screenID;
 
-}
-
-public class UIScreenBase : MonoBehaviour
-{
-    public UIScreenID screenID;
-
+    }
 }

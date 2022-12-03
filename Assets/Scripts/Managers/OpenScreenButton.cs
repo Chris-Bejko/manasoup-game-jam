@@ -4,23 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OpenScreenButton : MonoBehaviour
+namespace Manasoup.UI
 {
-
-    public UIScreenID screenToOpen;
-
-    public bool isBackButton;
-
-    private void Awake()
+    public class OpenScreenButton : MonoBehaviour
     {
-        GetComponent<Button>().onClick.AddListener(OnClick);
-    }
 
-    private void OnClick()
-    {
-        if (isBackButton)
-            GameManager.Instance.uIManager.LoadLastPanel();
-        else
-            GameManager.Instance.uIManager.ChangeScreen(screenToOpen);
+        public UIScreenID screenToOpen;
+
+        public bool isBackButton;
+
+        private void Awake()
+        {
+            GetComponent<Button>().onClick.AddListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            if (isBackButton)
+                GameManager.Instance.uIManager.LoadLastPanel();
+            else
+                GameManager.Instance.uIManager.ChangeScreen(screenToOpen);
+        }
     }
 }

@@ -1,84 +1,84 @@
-using Manasoup;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : PlayerBase
+namespace Manasoup
 {
-
-    [SerializeField]
-    private float _moveSpeed;
-    [SerializeField]
-    private float _moveLimiter;
-    [SerializeField]
-    private Rigidbody2D _rb;
-
-    private float _horizontal, _vertical;
-    private PlayerCombat thisCombat;
-    private void OnEnable()
+    public class PlayerMovement : PlayerBase
     {
-        GameManager.OnGameStateChanged += OnStateChange;
-    }
 
-    private void Awake()
-    {
-        thisCombat = GetComponent<PlayerCombat>();  
-    }
-    void Start()
-    {
-        
-    }
+        [SerializeField]
+        private float _moveSpeed;
+        [SerializeField]
+        private float _moveLimiter;
+        [SerializeField]
+        private Rigidbody2D _rb;
 
-    private void FixedUpdate()
-    {
-        if (isCombating)
-            return;
-
-        Move();
-    }
-
-    private void Move()
-    {
-        if (_horizontal != 0 && _vertical != 0)
+        private float _horizontal, _vertical;
+        private PlayerCombat thisCombat;
+        private void OnEnable()
         {
-            _horizontal *= _moveLimiter;
-            _vertical *= _moveLimiter;
+            GameManager.OnGameStateChanged += OnStateChange;
         }
-        isMoving = _horizontal != 0 && _vertical != 0;
-        SetDir();
 
-        _rb.velocity = new Vector2(_horizontal * _moveSpeed, _vertical * _moveSpeed);
-    }
+        private void Awake()
+        {
+            thisCombat = GetComponent<PlayerCombat>();
+        }
+        void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        GetInput();
-    }
+        }
 
-    private void OnStateChange(GameState state)
-    {
-        gameObject.SetActive(state == GameState.Playing);
+        private void FixedUpdate()
+        {
+            if (isCombating)
+                return;
+
+            Move();
+        }
+
+        private void Move()
+        {
+            if (_horizontal != 0 && _vertical != 0)
+            {
+                _horizontal *= _moveLimiter;
+                _vertical *= _moveLimiter;
+            }
+            isMoving = _horizontal != 0 && _vertical != 0;
+            SetDir();
+
+            _rb.velocity = new Vector2(_horizontal * _moveSpeed, _vertical * _moveSpeed);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            GetInput();
+        }
+
+        private void OnStateChange(GameState state)
+        {
+            gameObject.SetActive(state == GameState.Playing);
 
 
-    }
+        }
 
-    private void GetInput()
-    {
-        _horizontal = Input.GetAxisRaw("Horizontal");
-        _vertical = Input.GetAxisRaw("Vertical");
+        private void GetInput()
+        {
+            _horizontal = Input.GetAxisRaw("Horizontal");
+            _vertical = Input.GetAxisRaw("Vertical");
 
-    }
+        }
 
-    private void SetDir()
-    {
-        if (_vertical < 0)
-            thisCombat.currentDirection = PlayerDirection.Down;
-        if (_vertical > 0)
-            thisCombat.currentDirection = PlayerDirection.Up;
-        if(_horizontal > 0)
-            thisCombat.currentDirection = PlayerDirection.Right;
-        if (_horizontal < 0)
-            thisCombat.currentDirection = PlayerDirection.Left;
+        private void SetDir()
+        {
+            if (_vertical < 0)
+                thisCombat.currentDirection = PlayerDirection.Down;
+            if (_vertical > 0)
+                thisCombat.currentDirection = PlayerDirection.Up;
+            if (_horizontal > 0)
+                thisCombat.currentDirection = PlayerDirection.Right;
+            if (_horizontal < 0)
+                thisCombat.currentDirection = PlayerDirection.Left;
+        }
     }
 }

@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDamageable
+namespace Manasoup.Interfaces
 {
-    public int Health { get; set; }
+    public interface IDamageable
+    {
+        public int Health { get; set; }
 
-    public void TakeDamage(int damage);
+        public void TakeDamage(int damage);
 
-    
-    
+    }
 }

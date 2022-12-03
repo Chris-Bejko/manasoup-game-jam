@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class MainMenu : UIScreenBase
-{ 
+namespace Manasoup.UI
+{
+    public class MainMenu : UIScreenBase
+    {
+    }
 }

@@ -1,18 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationCheck : MonoBehaviour
+
+namespace Manasoup.AI
 {
-
-    public event Action wallHit;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class RotationCheck : MonoBehaviour
     {
-        if (collision.CompareTag("Walls"))
-        {
-            wallHit?.Invoke();
-        }
 
+        public event Action wallHit;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Walls"))
+            {
+                wallHit?.Invoke();
+            }
+
+        }
     }
 }
