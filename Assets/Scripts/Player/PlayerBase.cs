@@ -9,3 +9,10 @@ public class PlayerBase : MonoBehaviour
     protected bool isCombating;
 }
 
+public enum PlayerDirection
+{
+    Left,
+    Right,
+    Up,
+    Down
+}
