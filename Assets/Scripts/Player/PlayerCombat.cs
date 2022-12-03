@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerCombat : PlayerBase
+public class PlayerCombat : PlayerBase , IDamageable
 {
     [SerializeField]
-    private float _damage;
+    private int _damage;
 
     [SerializeField]
     private float _cooldown;
@@ -19,6 +19,8 @@ public class PlayerCombat : PlayerBase
         public PlayerDirection dir;
         public Transform attackPoint;
     }
+    [SerializeField]
+    private float _timeToShoot;
 
     [SerializeField]
     private float _attackRange;
@@ -28,10 +30,13 @@ public class PlayerCombat : PlayerBase
     private float _timer;
 
     public PlayerDirection currentDirection;
+
+    public int Health { get; set; }
+
     private void Awake()
     {
     }
-    // Start is called before the first frame update
+    // Start is called before the first frame update    
     void Start()
     {
         _timer = _cooldown;
@@ -49,20 +54,21 @@ public class PlayerCombat : PlayerBase
         _timer += Time.deltaTime;
         if (Input.GetMouseButtonDown(0) && _timer >= _cooldown)
         {
-            Hit();
+            StartCoroutine(Hit());
         }
 
     }
 
 
-    private void Hit()
+    private IEnumerator Hit()
     {
+        //Trigger animation
+        yield return new WaitForSeconds(_timeToShoot);
         _timer = 0;
         var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(currentDirection).position, _attackRange, _enemyLayers);
         foreach (var e in hitEnemies)
         {
-            //hitEnemies.Damage();
-            Debug.Log("We hit " + e.name);
+            e.GetComponent<IDamageable>().TakeDamage(_damage);
         }
     }
 
@@ -82,5 +88,9 @@ public class PlayerCombat : PlayerBase
                 return e.attackPoint;
         }
         return null;
+    }
+
+    public void TakeDamage(int damage)
+    {
     }
 }

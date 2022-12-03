@@ -10,6 +10,8 @@ namespace Manasoup
     {
         public static GameManager Instance;
 
+        public PlayerBase player;
+        public UIManager uIManager;
         public static event Action<GameState> OnGameStateChanged;
 
         private GameState _currentGameState;
