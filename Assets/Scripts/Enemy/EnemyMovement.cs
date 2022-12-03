@@ -55,7 +55,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable
     }
     private void Chase()
     {
-        Debug.LogError("ShouldStartChasing");        transform.position = Vector2.MoveTowards(transform.position, GameManager.Instance.player.transform.position, _moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, GameManager.Instance.player.transform.position, _moveSpeed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)

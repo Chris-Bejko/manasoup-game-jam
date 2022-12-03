@@ -20,6 +20,7 @@ namespace Manasoup
 
         private void Awake()
         {
+            uIManager.Init();
             Instance = this;
             _currentGameState = GameState.UI;
             ChangeState(GameState.Playing);

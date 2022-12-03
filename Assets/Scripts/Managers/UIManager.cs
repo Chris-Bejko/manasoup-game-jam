@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private List<UIScreenBase> uiScreens;
+    public List<UIScreenBase> uiScreens;
 
     public static event Action<UIScreenID> OnUIPanelChanged;
 
@@ -13,6 +14,11 @@ public class UIManager : MonoBehaviour
 
     private UIScreenID previousPanel;
 
+    public void Init()
+    {
+        uiScreens = FindObjectsOfType<UIScreenBase>().ToList();
+        ChangeScreen(UIScreenID.MainMenu);
+    }
     public void ChangeScreen(UIScreenID panel)
     {
         previousPanel = currentPanel;
@@ -20,10 +26,7 @@ public class UIManager : MonoBehaviour
 
         foreach (var e in uiScreens)
         {
-            if (e.screenID == panel)
-            {
-                e.gameObject.SetActive(e.screenID == panel);
-            }
+            e.gameObject.SetActive(e.screenID == panel);
         }
 
         OnUIPanelChanged?.Invoke(currentPanel);
