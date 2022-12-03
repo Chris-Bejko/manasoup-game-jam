@@ -5,7 +5,7 @@ using Manasoup.Interfaces;
 
 namespace Manasoup
 {
-    public class PlayerCombat : PlayerBase
+    public class PlayerCombat : MonoBehaviour
     {
         [SerializeField]
         private int _damage;

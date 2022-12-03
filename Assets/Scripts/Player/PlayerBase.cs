@@ -7,9 +7,11 @@ namespace Manasoup
 {
     public class PlayerBase : MonoBehaviour, IDamageable
     {
-        protected bool isMoving;
-        protected bool isCombating;
+        public bool isMoving;
+        public bool isCombating;
         public int currentRoom;
+        public PlayerCombat _playerCombat;
+        public PlayerMovement _playerMovement;
 
         public int Health { get; set; }
 
@@ -18,6 +20,8 @@ namespace Manasoup
         public void Init()
         {
             Health = MaxHealth;
+            _playerCombat = GetComponent<PlayerCombat>();  
+            _playerMovement = GetComponent<PlayerMovement>();  
         }
         public void ChangeRoom(int newRoom)
         {
@@ -31,10 +35,15 @@ namespace Manasoup
             if(Health <= 0)
             {
                 Health = 0;
+                Die();
                 GameManager.Instance.ChangeState(GameManager.GameState.Lost);
             }
         }
 
+        public void Die()
+        {
+
+        }
     }
 
     public enum PlayerDirection

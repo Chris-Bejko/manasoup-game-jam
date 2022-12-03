@@ -1,30 +1,40 @@
-using Manasoup;
 using Manasoup.Interfaces;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour, IDamageable
+namespace Manasoup.AI
 {
-    public int Health { get; set; }
-
-    public int MaxHealth;
-    [SerializeField]
-    public int _enemyRoom;
-    [SerializeField]
-    Rigidbody2D _thisRigidbody;
-    public bool isDead;
-
-    public virtual void Init()
+    public class EnemyBase : MonoBehaviour, IDamageable
     {
-        Health = MaxHealth;
-    }
+        public int Health { get; set; }
 
-    public void TakeDamage(int damage)
-    {
-        Health -= damage;
-        if(Health <= 0)
+        public int MaxHealth;
+        [SerializeField]
+        public int _enemyRoom;
+        [SerializeField]
+        Rigidbody2D _thisRigidbody;
+        public bool isDead;
+
+        public virtual void Init()
         {
-            isDead = true;
-            GameManager.Instance.enemiesManager.CheckEnemiesLeft();
+            Health = MaxHealth;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            Debug.LogError(Health);
+            if (Health <= 0)
+            {
+                isDead = true;
+                Die();
+                GameManager.Instance.enemiesManager.CheckEnemiesLeft();
+            }
+        }
+
+        public void Die()
+        {
+            ///Play dead anim
+            gameObject.SetActive(false);
         }
     }
 }

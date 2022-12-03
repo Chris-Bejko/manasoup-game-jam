@@ -6,5 +6,6 @@ namespace Manasoup.Interfaces
 
         public void TakeDamage(int damage);
 
+        public void Die();
     }
 }

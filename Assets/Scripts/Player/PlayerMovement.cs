@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Manasoup
 {
-    public class PlayerMovement : PlayerBase
+    public class PlayerMovement : MonoBehaviour
     {
 
         [SerializeField]
@@ -11,9 +11,15 @@ namespace Manasoup
         private float _moveLimiter;
         [SerializeField]
         private Rigidbody2D _rb;
+        [SerializeField]
+        private PlayerBase _player;
 
         private float _horizontal, _vertical;
-        private PlayerCombat thisCombat;
+
+        private void Init()
+        {
+
+        }
         private void OnEnable()
         {
             GameManager.OnGameStateChanged += OnStateChange;
@@ -26,7 +32,7 @@ namespace Manasoup
 
         private void FixedUpdate()
         {
-            if (isCombating)
+            if (_player.isCombating)
                 return;
 
             Move();
@@ -39,7 +45,7 @@ namespace Manasoup
                 _horizontal *= _moveLimiter;
                 _vertical *= _moveLimiter;
             }
-            isMoving = _horizontal != 0 && _vertical != 0;
+            _player.isMoving = _horizontal != 0 && _vertical != 0;
             SetDir();
 
             _rb.velocity = new Vector2(_horizontal * _moveSpeed, _vertical * _moveSpeed);
@@ -54,6 +60,8 @@ namespace Manasoup
         private void OnStateChange(GameManager.GameState state)
         {
             gameObject.SetActive(state == GameManager.GameState.Playing);
+            if (state == GameManager.GameState.Playing)
+                Init();
 
 
         }
@@ -68,13 +76,13 @@ namespace Manasoup
         private void SetDir()
         {
             if (_vertical < 0)
-                thisCombat.currentDirection = PlayerDirection.Down;
+                _player._playerCombat.currentDirection = PlayerDirection.Down;
             if (_vertical > 0)
-                thisCombat.currentDirection = PlayerDirection.Up;
+                _player._playerCombat.currentDirection = PlayerDirection.Up;
             if (_horizontal > 0)
-                thisCombat.currentDirection = PlayerDirection.Right;
+                _player._playerCombat.currentDirection = PlayerDirection.Right;
             if (_horizontal < 0)
-                thisCombat.currentDirection = PlayerDirection.Left;
+                _player._playerCombat.currentDirection = PlayerDirection.Left;
         }
     }
 }

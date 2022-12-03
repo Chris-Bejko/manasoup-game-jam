@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Manasoup.AI
 {
-    public class EnemyCombat : EnemyBase
+    public class EnemyCombat : MonoBehaviour
     {
         [SerializeField]
         private float _combatDistance;
