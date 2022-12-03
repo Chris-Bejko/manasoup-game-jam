@@ -19,13 +19,9 @@ namespace Manasoup
             GameManager.OnGameStateChanged += OnStateChange;
         }
 
-        private void Awake()
+        private void OnDisable()
         {
-            thisCombat = GetComponent<PlayerCombat>();
-        }
-        void Start()
-        {
-
+            GameManager.OnGameStateChanged -= OnStateChange;
         }
 
         private void FixedUpdate()
@@ -55,9 +51,9 @@ namespace Manasoup
             GetInput();
         }
 
-        private void OnStateChange(GameState state)
+        private void OnStateChange(GameManager.GameState state)
         {
-            gameObject.SetActive(state == GameState.Playing);
+            gameObject.SetActive(state == GameManager.GameState.Playing);
 
 
         }

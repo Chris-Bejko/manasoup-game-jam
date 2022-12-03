@@ -5,7 +5,7 @@ using Manasoup.Interfaces;
 
 namespace Manasoup
 {
-    public class PlayerCombat : PlayerBase, IDamageable
+    public class PlayerCombat : PlayerBase
     {
         [SerializeField]
         private int _damage;
@@ -33,18 +33,11 @@ namespace Manasoup
 
         public PlayerDirection currentDirection;
 
-        public int Health { get; set; }
-
-        private void Awake()
-        {
-        }
-        // Start is called before the first frame update    
         void Start()
         {
             _timer = _cooldown;
         }
 
-        // Update is called once per frame
         void Update()
         {
             GetInput();
@@ -90,10 +83,6 @@ namespace Manasoup
                     return e.attackPoint;
             }
             return null;
-        }
-
-        public void TakeDamage(int damage)
-        {
         }
     }
 }
