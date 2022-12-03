@@ -101,7 +101,8 @@ namespace Manasoup
             Playing,
             Boss,
             Won,
-            Lost
+            Lost,
+            Pause
         }
 
     }
