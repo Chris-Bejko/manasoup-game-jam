@@ -29,6 +29,8 @@ namespace Manasoup
         [SerializeField]
         private LayerMask _enemyLayers;
 
+        [SerializeField]
+        private PlayerBase _player;
         private float _timer;
 
         public PlayerDirection currentDirection;
@@ -46,6 +48,9 @@ namespace Manasoup
 
         private void GetInput()
         {
+            if (_player._playerMovement._speed > 0 && !_player.canAttackWhileShooting)
+                return;
+
             _timer += Time.deltaTime;
             if (Input.GetMouseButtonDown(0) && _timer >= _cooldown)
             {
@@ -57,7 +62,8 @@ namespace Manasoup
 
         private IEnumerator Hit()
         {
-            //Trigger animation
+            _player._animator.SetTrigger("Attack");
+
             yield return new WaitForSeconds(_timeToShoot);
             _timer = 0;
             var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(currentDirection).position, _attackRange, _enemyLayers);

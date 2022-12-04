@@ -12,6 +12,8 @@ namespace Manasoup
         public int currentRoom;
         public PlayerCombat _playerCombat;
         public PlayerMovement _playerMovement;
+        public Animator _animator;
+        public bool canAttackWhileShooting;
 
         public int Health { get; set; }
 
