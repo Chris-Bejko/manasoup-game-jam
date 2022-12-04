@@ -140,15 +140,16 @@ namespace Manasoup.Character
 
         }
 
-        private void DropHeart()
+        private IEnumerator DropHeart()
         {
+            yield return new WaitForSeconds(1f);
             var heart = Instantiate(heartPefab);
             heart.transform.position = transform.position;
         }
         private IEnumerator IDie()
         {
             if (!_isPlayer)
-                DropHeart();
+                StartCoroutine(DropHeart());
             _animator.SetTrigger("Die");
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);

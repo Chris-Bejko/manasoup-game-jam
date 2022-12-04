@@ -15,6 +15,8 @@ public class RoomTrigger : MonoBehaviour
             return;
 
         GameManager.Instance.player._currentRoom = roomID;
+        if (GameManager.Instance.enemiesManager.GetEnemyByRoom(roomID)._isDead)
+            return;
         if (!enteredOnce)
         {   
             enteredOnce = true;

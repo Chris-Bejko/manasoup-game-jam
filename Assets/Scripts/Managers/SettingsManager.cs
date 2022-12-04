@@ -26,10 +26,12 @@ public class SettingsManager : MonoBehaviour
     private void InitSliders()
     {
         var hasPlayed = PlayerPrefs.GetInt("HasPlayed") == 1;
+        var sfx = 1f;
+        var music = 1f;
         if (hasPlayed)
         {
-            var sfx = PlayerPrefs.GetFloat("SFX");
-            var music = PlayerPrefs.GetFloat("Music");
+            sfx = PlayerPrefs.GetFloat("SFX");
+            music = PlayerPrefs.GetFloat("Music");
             SFXSlider.SetValueWithoutNotify(sfx);
             MusicSlider.SetValueWithoutNotify(music);
             GameManager.Instance.uIManager.SetUIVolume(PlayerPrefs.GetFloat("SFX"));
@@ -39,17 +41,27 @@ public class SettingsManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("HasPlayed", 1);
-            PlayerPrefs.SetInt("SFX", 1);
-            PlayerPrefs.SetInt("Music", 1);
+            PlayerPrefs.SetFloat("SFX", 1);
+            PlayerPrefs.SetFloat("Music", 1);
         }
-
+        SFXSlider.SetValueWithoutNotify(sfx);
+        MusicSlider.SetValueWithoutNotify(music);
+        GameManager.Instance.uIManager.SetUIVolume(PlayerPrefs.GetFloat("SFX"));
+        SFXSlider.onValueChanged?.Invoke(sfx);
+        MusicSlider.onValueChanged?.Invoke(music);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.uIManager.SetUIVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.player.GetComponent<CharacterCombat>().SetVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.player.SetVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.enemiesManager.SetVolume);
+        SFXSlider.onValueChanged.AddListener(UpdateSFXPrefs);
         MusicSlider.onValueChanged.AddListener(SetMusicVolume);
     }
 
+
+    void UpdateSFXPrefs(float volume)
+    {
+        PlayerPrefs.SetFloat("SFX", volume);
+    }
     void SetMusicVolume(float volume)
     {
         MusicPlayer.volume = volume;

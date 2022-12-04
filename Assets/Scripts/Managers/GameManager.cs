@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Manasoup.UI;
 using Manasoup.Character;
+using UnityEngine.UI;
 
 namespace Manasoup
 {
@@ -70,6 +71,8 @@ namespace Manasoup
         }
         public void StatePlaying()
         {
+            var img = uIManager.fadePanel.GetComponent<Image>();
+            uIManager.fadePanel.GetComponent<Image>().color = new Color(img.color.a, img.color.b, img.color.g, 0);
         }
 
 

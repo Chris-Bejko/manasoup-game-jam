@@ -678,6 +678,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7704882046641534132, guid: 5a7c082377c272846bdd37b1546034f0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704882046641534132, guid: 5a7c082377c272846bdd37b1546034f0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704882046641534132, guid: 5a7c082377c272846bdd37b1546034f0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704882046641534132, guid: 5a7c082377c272846bdd37b1546034f0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7704882046653902761, guid: 5a7c082377c272846bdd37b1546034f0, type: 3}
       propertyPath: m_Name
       value: UICamera
