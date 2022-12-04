@@ -1,4 +1,5 @@
 using Manasoup.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ namespace Manasoup.Character
 {
     public class CharacterCombat : MonoBehaviour
     {
+
+
+        public static event Action DamageDone;
 
         [SerializeField]
         private int _damage;
@@ -41,7 +45,10 @@ namespace Manasoup.Character
 
         private void Update()
         {
-            _timer++;
+            if (_character._isDead)
+                return;
+
+            _timer+= Time.deltaTime;
             if (_character._hitTriggered && _timer >= _cooldown)
                 StartCoroutine(Hit());
         }
@@ -50,14 +57,14 @@ namespace Manasoup.Character
         {
             _character._animator.SetTrigger("Attack");
 
-            yield return new WaitForSeconds(_timeToShoot);
             _timer = 0;
+            yield return new WaitForSeconds(_timeToShoot);
             var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(currentDirection).position, _attackRange, _targetLayers);
             foreach (var e in hitEnemies)
             {
                 e.GetComponent<IDamageable>().TakeDamage(_damage);
+                DamageDone.Invoke();
             }
-            _character._hitTriggered = false;
         }
         private void OnDrawGizmosSelected()
         {

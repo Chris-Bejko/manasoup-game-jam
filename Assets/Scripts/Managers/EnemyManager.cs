@@ -1,15 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Manasoup.Character;
 
-namespace Manasoup.AI
+namespace Manasoup.Character
 {
     public class EnemyManager : MonoBehaviour
     {
 
         public List<CharacterBase> _enemies;
+        CharacterBase _player;
 
+        private void Awake()
+        {
+            _enemies = FindObjectsOfType<CharacterBase>().ToList();
+        }
         void OnGameStateChanged(GameManager.GameState state)
         {
             if (state == GameManager.GameState.Playing)
@@ -18,16 +22,17 @@ namespace Manasoup.AI
 
         void InitEnemies()
         {
-            CharacterBase player = null;
-            _enemies = FindObjectsOfType<CharacterBase>().ToList();
             foreach(var e in _enemies)
             {
+                e.gameObject.SetActive(true);
                 e.Init();
                 if (e._isPlayer)
-                    player = e;
+                    _player = e;
             }
-            if (player != null)
-                _enemies.Remove(player);
+            if (_player != null)
+                _enemies.Remove(_player);
+            _player.gameObject.SetActive(true);
+            _player.Init();
 
         }
 
@@ -49,7 +54,17 @@ namespace Manasoup.AI
                     i++;
             }
             if (i == _enemies.Count)
-                Debug.LogError("All Enemies are dead");
+                Debug.Log("All Enemies are dead");
+        }
+
+        public CharacterBase GetEnemyByRoom(int room)
+        {
+            foreach(var e in _enemies)
+            {
+                if (e._currentRoom == room)
+                    return e;
+            }
+            return null;
         }
     }
 }

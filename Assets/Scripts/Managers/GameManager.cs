@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 using Manasoup.UI;
-using System.Collections.Generic;
-using Manasoup.AI;
 using Manasoup.Character;
 
 namespace Manasoup
@@ -16,18 +14,21 @@ namespace Manasoup
         public EnemyManager enemiesManager;
         public static event Action<GameState> OnGameStateChanged;
 
+        [SerializeField]
         private GameState _currentGameState;
-        private GameState _previousGameState;
 
 
         private void Awake()
         {
             uIManager.Init();
             Instance = this;
-            _currentGameState = GameState.UI;
-            ChangeState(GameState.Playing);
+            _currentGameState = GameState.Unknown;
         }
 
+        private void Start()
+        {
+            ChangeState(GameState.UI);
+        }
         public GameState GetCurrentState()
         {
             return _currentGameState;
@@ -35,7 +36,6 @@ namespace Manasoup
 
         public void ChangeState(GameState _newState)
         {
-            _previousGameState = _currentGameState;
             _currentGameState = _newState;
             HandleGameStateChange(_currentGameState);
         }
@@ -52,8 +52,6 @@ namespace Manasoup
                 case GameState.Playing:
                     StatePlaying();
                     break;
-                case GameState.Boss:
-                    StateBoss();
                     break;
                 case GameState.Won:
                     StateWon();
@@ -61,7 +59,6 @@ namespace Manasoup
                 case GameState.Lost:
                     StateLost();
                     break;
-
             }
 
             OnGameStateChanged?.Invoke(_currentGameState);
@@ -71,18 +68,12 @@ namespace Manasoup
         ///GameState Handlers
         public void StateUI()
         {
-
+            uIManager.ChangeScreen(UIScreenID.MainMenu);
         }
-
         public void StatePlaying()
         {
-
         }
 
-        public void StateBoss()
-        {
-
-        }
 
         public void StateWon()
         {
@@ -91,7 +82,7 @@ namespace Manasoup
 
         public void StateLost()
         {
-
+                uIManager.ChangeScreen(UIScreenID.LostMenu);
         }
 
 
@@ -100,10 +91,8 @@ namespace Manasoup
             Unknown,
             UI,
             Playing,
-            Boss,
             Won,
             Lost,
-            Pause
         }
 
     }

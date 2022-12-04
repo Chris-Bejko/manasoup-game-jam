@@ -1,8 +1,4 @@
-using Manasoup.AI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Manasoup.Character
 {
@@ -26,6 +22,9 @@ namespace Manasoup.Character
 
         private void FixedUpdate()
         {
+            if (_character._isDead)
+                return;
+
             Move();
         }
 

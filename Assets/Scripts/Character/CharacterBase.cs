@@ -1,11 +1,7 @@
-using Manasoup;
-using Manasoup.AI;
 using Manasoup.Interfaces;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 namespace Manasoup.Character
 {
@@ -43,6 +39,7 @@ namespace Manasoup.Character
 
         public float _combatDistance;
 
+        public Vector3 _initialPosition;
         public Vector3 _dir;
         public void OnEnable()
         {
@@ -62,7 +59,8 @@ namespace Manasoup.Character
 
         public void Init()
         {
-
+            transform.position = _initialPosition;
+            Health = MaxHealth;
         }
         private void GetInput()
         {
@@ -100,7 +98,8 @@ namespace Manasoup.Character
         public void TakeDamage(int damage)
         {
             Health -= damage;
-            Debug.LogError(Health);
+            if(_isPlayer)
+                Debug.LogError(Health);
             if (Health <= 0)
             {
                 _isDead = true;
@@ -112,9 +111,16 @@ namespace Manasoup.Character
 
         public void Die()
         {
+            StartCoroutine(IDie());
+            if (_isPlayer)
+                GameManager.Instance.ChangeState(GameManager.GameState.Lost);
+        }
+        private IEnumerator IDie()
+        {
+            _animator.SetTrigger("Die");
+            yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
         }
-
         public void Animate()
         {
             _animator.SetFloat("Direction", (int)_direction);
@@ -142,6 +148,7 @@ namespace Manasoup.Character
 
         private void OnStateChange(GameManager.GameState state)
         {
+            Debug.LogError(state);
             gameObject.SetActive(state == GameManager.GameState.Playing);
             if (state == GameManager.GameState.Playing)
                 Init();
@@ -174,6 +181,14 @@ namespace Manasoup.Character
 
             ///Sprite order to handle when player is above enemy
             _spriteRenderer.sortingOrder = _dir.y > 0.3 ? 6 : 4;
+        }
+
+        public void Heal()
+        {
+        }
+
+        public void Heal(int health)
+        {
         }
     }
 }

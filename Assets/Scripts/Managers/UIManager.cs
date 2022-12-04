@@ -47,8 +47,11 @@ namespace Manasoup.UI
     public enum UIScreenID
     {
         None,
+        InGameUI,
         MainMenu,
         Settings,
+        LostMenu,
+
         //Keep it going here
 
     }
