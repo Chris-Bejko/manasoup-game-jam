@@ -42,7 +42,7 @@ namespace Manasoup.Character
         private void Update()
         {
             _timer++;
-            if (_character._hitTriggered)
+            if (_character._hitTriggered && _timer >= _cooldown)
                 StartCoroutine(Hit());
         }
 

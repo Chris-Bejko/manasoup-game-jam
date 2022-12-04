@@ -41,6 +41,8 @@ namespace Manasoup.Character
 
         public float _minDistance;
 
+        public float _combatDistance;
+
         public Vector3 _dir;
         public void OnEnable()
         {
@@ -76,7 +78,7 @@ namespace Manasoup.Character
             _vertical = Input.GetAxisRaw("Vertical");
             if (Input.GetKeyDown(KeyCode.Space))
                 _hitTriggered = true;
-            else if (Input.GetKeyUp(KeyCode.Space))
+            else
                 _hitTriggered = false;
                 
         }
@@ -84,14 +86,15 @@ namespace Manasoup.Character
         private void GetAIInput()
         {
             _isMoving = false;
-
-            if (Vector2.Distance(GameManager.Instance.player.transform.position, gameObject.transform.position) < _minDistance)
+            var distanceFromPlayer = Vector2.Distance(GameManager.Instance.player.transform.position, gameObject.transform.position);
+            if (distanceFromPlayer < _minDistance)
                 return;
 
             if (GameManager.Instance.player._currentRoom != _currentRoom)
                 return;
 
             _isMoving = true;
+            _hitTriggered = distanceFromPlayer <= _combatDistance;
             SetDirection();
         }
         public void TakeDamage(int damage)
