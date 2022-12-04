@@ -15,6 +15,8 @@ namespace Manasoup.Character
         public static event Action DamageDone;
         [SerializeField]
         private int _damage;
+        [SerializeField]
+        private AudioSource _audioSource;
 
         [SerializeField]
         private float _cooldown;
@@ -55,7 +57,7 @@ namespace Manasoup.Character
         private IEnumerator Hit()
         {
             _character._animator.SetTrigger("Attack");
-
+            _audioSource.Play();
             _timer = 0;
             yield return new WaitForSeconds(_timeToShoot);
             var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(_character._direction).position, _attackRange, _targetLayers);

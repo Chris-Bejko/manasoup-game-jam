@@ -19,11 +19,29 @@ namespace Manasoup.UI
 
         private UIScreenID previousPanel;
 
+        [SerializeField]
+        AudioSource UISource;
+        
         public void Init()
         {
+            InitButtonUISFX();
             uiScreens = FindObjectsOfType<UIScreenBase>().ToList();
             ChangeScreen(UIScreenID.MainMenu);
         }
+
+        private void InitButtonUISFX()
+        {
+            List<Button> allUIButtons = new List<Button>();
+            foreach (var e in Resources.FindObjectsOfTypeAll(typeof(Button)) as Button[])
+            {
+                allUIButtons.Add(e);
+            }
+            foreach (var e in allUIButtons)
+            {
+                e.onClick.AddListener(PlayButtonAudio);
+            }
+        }
+
         public void ChangeScreen(UIScreenID panel)
         {
             previousPanel = currentPanel;
@@ -64,6 +82,16 @@ namespace Manasoup.UI
                 fadePanel.GetComponent<Image>().color = objectColor;
                 yield return null;
             }
+        }
+
+        public void PlayButtonAudio()
+        {
+            UISource.Play();
+        }
+
+        public void SetUIVolume(float volume)
+        {
+            UISource.volume = volume;
         }
     }
 

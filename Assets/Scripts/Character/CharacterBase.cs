@@ -12,6 +12,7 @@ namespace Manasoup.Character
 
         public bool _isMoving;
 
+
         public bool _canMove;
 
         public bool _isCombating;
@@ -21,6 +22,8 @@ namespace Manasoup.Character
         public Animator _animator;
 
         public bool _canAttackWhileShooting;
+
+        public AudioSource _source;
 
         public bool _isDead;
         public int Health { get; set; }
@@ -60,8 +63,23 @@ namespace Manasoup.Character
         {
             GetInput();
             Animate();
+            if (_isPlayer)
+                WalkSound();
         }
 
+        private void WalkSound()
+        {
+            if(_horizontal != 0 || _vertical != 0)
+                _isMoving = true;
+            else
+                _isMoving = false;
+
+            if(_isMoving && !_source.isPlaying)
+                _source.Play();
+
+            if (!_isMoving)
+                _source.Stop();
+        }
         public void Init()
         {
             transform.position = _initialPosition;
