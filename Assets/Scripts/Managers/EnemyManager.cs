@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 namespace Manasoup.Character
 {
@@ -10,6 +11,7 @@ namespace Manasoup.Character
         public List<CharacterBase> _enemies;
         CharacterBase _player;
 
+        public static event Action<int> OnCharacterKilled;
         private void Awake()
         {
             _enemies = FindObjectsOfType<CharacterBase>().ToList();
@@ -47,6 +49,8 @@ namespace Manasoup.Character
         
         public void CheckEnemiesLeft()
         {
+
+            OnCharacterKilled?.Invoke(0);
             int i = 0;
             foreach(var e in _enemies)
             {

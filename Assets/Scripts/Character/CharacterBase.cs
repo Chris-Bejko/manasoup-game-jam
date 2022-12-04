@@ -1,4 +1,5 @@
 using Manasoup.Interfaces;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ namespace Manasoup.Character
 
         public Vector3 _initialPosition;
         public Vector3 _dir;
+
         public void OnEnable()
         {
             GameManager.OnGameStateChanged += OnStateChange;

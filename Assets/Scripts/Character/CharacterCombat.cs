@@ -13,7 +13,6 @@ namespace Manasoup.Character
 
 
         public static event Action DamageDone;
-
         [SerializeField]
         private int _damage;
 
@@ -60,10 +59,12 @@ namespace Manasoup.Character
             _timer = 0;
             yield return new WaitForSeconds(_timeToShoot);
             var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(currentDirection).position, _attackRange, _targetLayers);
+            Debug.LogError(GetAttackPoint(currentDirection).name);
+            Debug.LogError(hitEnemies.Length);
             foreach (var e in hitEnemies)
             {
                 e.GetComponent<IDamageable>().TakeDamage(_damage);
-                DamageDone.Invoke();
+                DamageDone?.Invoke();
             }
         }
         private void OnDrawGizmosSelected()
