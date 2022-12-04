@@ -637,6 +637,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1502214659666260353, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
+      propertyPath: m_Name
+      value: up point
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502214660691748229, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
+      propertyPath: m_Name
+      value: leftpoint
+      objectReference: {fileID: 0}
     - target: {fileID: 1502214660807843939, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
       propertyPath: m_Name
       value: Player
@@ -684,6 +692,14 @@ PrefabInstance:
     - target: {fileID: 1502214660807843941, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502214661016197930, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
+      propertyPath: m_Name
+      value: rightpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502214661122201348, guid: d5e75f0941f249349b607cb4e7e2a609, type: 3}
+      propertyPath: m_Name
+      value: down point
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1060,6 +1076,22 @@ PrefabInstance:
     - target: {fileID: 6744373176198525078, guid: 1e71ded200c514a4189aaa4e8069e338, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744373176275334282, guid: 1e71ded200c514a4189aaa4e8069e338, type: 3}
+      propertyPath: m_Name
+      value: down point
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744373176498060046, guid: 1e71ded200c514a4189aaa4e8069e338, type: 3}
+      propertyPath: m_Name
+      value: up point
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744373176942382125, guid: 1e71ded200c514a4189aaa4e8069e338, type: 3}
+      propertyPath: m_Name
+      value: right point
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744373177011164491, guid: 1e71ded200c514a4189aaa4e8069e338, type: 3}
+      propertyPath: m_Name
+      value: left point
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
