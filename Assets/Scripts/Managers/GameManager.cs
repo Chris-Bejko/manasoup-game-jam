@@ -15,6 +15,7 @@ namespace Manasoup
         public EnemyManager enemiesManager;
         public static event Action<GameState> OnGameStateChanged;
 
+        public Collider2D BossCollider;
         [SerializeField]
         private GameState _currentGameState;
         public int RoomCount;
@@ -24,7 +25,15 @@ namespace Manasoup
             Instance = this;
             _currentGameState = GameState.Unknown;
         }
+        private void OnEnable()
+        {
 
+            CharacterBase.OnBossDied += OnBossDied;
+        }
+        private void OnDisable()
+        {
+            CharacterBase.OnBossDied -= OnBossDied;
+        }
         private void Start()
         {
             ChangeState(GameState.UI);
@@ -88,7 +97,10 @@ namespace Manasoup
             uIManager.ChangeScreen(UIScreenID.LostMenu);
         }
 
-
+        public void OnBossDied()
+        {
+            BossCollider.gameObject.SetActive(false);
+        }
         public enum GameState
         {
             Unknown,

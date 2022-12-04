@@ -13,6 +13,8 @@ namespace Manasoup.Character
         public bool _isMoving;
 
 
+        public bool _isBoss;
+
         public bool _canMove;
 
         public bool _isCombating;
@@ -43,11 +45,12 @@ namespace Manasoup.Character
 
         public float _combatDistance;
 
-        public Vector3 _initialPosition;
+        public Transform _initialPosition;
         public Vector3 _dir;
 
         public GameObject heartPefab;
         public static event Action HealingDone;
+        public static event Action OnBossDied;
 
         public void OnEnable()
         {
@@ -82,7 +85,7 @@ namespace Manasoup.Character
         }
         public void Init()
         {
-            transform.position = _initialPosition;
+            transform.position = _initialPosition.position;
             Health = MaxHealth;
         }
         private void GetInput()
@@ -134,6 +137,8 @@ namespace Manasoup.Character
 
         public void Die()
         {
+            if (_isBoss)
+                OnBossDied?.Invoke();
             StartCoroutine(IDie());
             if (_isPlayer)
                 GameManager.Instance.ChangeState(GameManager.GameState.Lost);
