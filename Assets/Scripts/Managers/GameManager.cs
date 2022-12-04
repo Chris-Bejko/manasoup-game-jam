@@ -16,8 +16,7 @@ namespace Manasoup
 
         [SerializeField]
         private GameState _currentGameState;
-
-
+        public int RoomCount;
         private void Awake()
         {
             uIManager.Init();
@@ -52,7 +51,6 @@ namespace Manasoup
                 case GameState.Playing:
                     StatePlaying();
                     break;
-                    break;
                 case GameState.Won:
                     StateWon();
                     break;
@@ -77,12 +75,14 @@ namespace Manasoup
 
         public void StateWon()
         {
-
+            uIManager.FadePanel();
+            //uIManager.ChangeScreen(UIScreenID.WonMenu);
         }
 
         public void StateLost()
         {
-                uIManager.ChangeScreen(UIScreenID.LostMenu);
+            uIManager.FadePanel();
+            uIManager.ChangeScreen(UIScreenID.LostMenu);
         }
 
 

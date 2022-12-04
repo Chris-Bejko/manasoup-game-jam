@@ -59,8 +59,6 @@ namespace Manasoup.Character
             _timer = 0;
             yield return new WaitForSeconds(_timeToShoot);
             var hitEnemies = Physics2D.OverlapCircleAll(GetAttackPoint(_character._direction).position, _attackRange, _targetLayers);
-            Debug.LogError(GetAttackPoint(_character._direction).name);
-            Debug.LogError(hitEnemies.Length);
             foreach (var e in hitEnemies)
             {
                 e.GetComponent<IDamageable>().TakeDamage(_damage);

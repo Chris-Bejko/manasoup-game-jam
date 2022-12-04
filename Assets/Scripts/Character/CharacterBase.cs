@@ -43,6 +43,9 @@ namespace Manasoup.Character
         public Vector3 _initialPosition;
         public Vector3 _dir;
 
+        public GameObject heartPefab;
+        public static event Action HealingDone;
+
         public void OnEnable()
         {
             GameManager.OnGameStateChanged += OnStateChange;
@@ -116,9 +119,18 @@ namespace Manasoup.Character
             StartCoroutine(IDie());
             if (_isPlayer)
                 GameManager.Instance.ChangeState(GameManager.GameState.Lost);
+
+        }
+
+        private void DropHeart()
+        {
+            var heart = Instantiate(heartPefab);
+            heart.transform.position = transform.position;
         }
         private IEnumerator IDie()
         {
+            if (!_isPlayer)
+                DropHeart();
             _animator.SetTrigger("Die");
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
@@ -150,7 +162,6 @@ namespace Manasoup.Character
 
         private void OnStateChange(GameManager.GameState state)
         {
-            Debug.LogError(state);
             gameObject.SetActive(state == GameManager.GameState.Playing);
             if (state == GameManager.GameState.Playing)
                 Init();
@@ -185,12 +196,11 @@ namespace Manasoup.Character
             _spriteRenderer.sortingOrder = _dir.y > 0.3 ? 6 : 4;
         }
 
-        public void Heal()
-        {
-        }
-
         public void Heal(int health)
         {
+            Health += health;
+            HealingDone?.Invoke();
+            
         }
     }
 }

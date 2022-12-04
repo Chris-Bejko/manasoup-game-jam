@@ -8,8 +8,6 @@ namespace Manasoup.Interfaces
 
         public void Die();
 
-        public void Heal();
-
         public void Heal(int health);
     }
 }

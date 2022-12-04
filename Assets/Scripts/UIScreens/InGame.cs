@@ -16,9 +16,12 @@ namespace Manasoup.UI
         private void OnEnable()
         {
             playerSlider.value = playerSlider.maxValue;
+            playerSlider.gameObject.SetActive(true);
+            enemySlider.gameObject.SetActive(false);
             RoomTrigger.OnRoomChanged += ToggleEnemyHealth;
-            CharacterCombat.DamageDone += UpdateValues;
             EnemyManager.OnCharacterKilled += ToggleEnemyHealth;
+            CharacterCombat.DamageDone += UpdateValues;
+            CharacterBase.HealingDone += UpdateValues;
         }
 
         private void OnDisable()
@@ -26,11 +29,16 @@ namespace Manasoup.UI
             EnemyManager.OnCharacterKilled -= ToggleEnemyHealth;
             RoomTrigger.OnRoomChanged -= ToggleEnemyHealth;
             CharacterCombat.DamageDone -= UpdateValues;
+            CharacterBase.HealingDone -= UpdateValues;
         }
 
         private void ToggleEnemyHealth(int room)
         {
-            Debug.LogError("Player entered room");
+            if (room == GameManager.Instance.RoomCount)
+            {
+                GameManager.Instance.ChangeState(GameManager.GameState.Won);
+                return;
+            }
             if (room == 0)
             {
                 enemySlider.gameObject.SetActive(false);
@@ -49,6 +57,15 @@ namespace Manasoup.UI
         {
             playerSlider.value = GameManager.Instance.player.Health;
             enemySlider.value = currentEnemy.Health;
+        }
+
+        public void OnGameStateChange(GameManager.GameState state)
+        {
+            if(state == GameManager.GameState.Lost)
+            {
+                enemySlider.gameObject.SetActive(false);
+                playerSlider.gameObject.SetActive(false);
+            }
         }
     }
 }
