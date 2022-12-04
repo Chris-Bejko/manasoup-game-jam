@@ -18,7 +18,7 @@ namespace Manasoup
         [System.Serializable]
         public class DirectionToTransform
         {
-            public PlayerDirection dir;
+            public Direction dir;
             public Transform attackPoint;
         }
         [SerializeField]
@@ -33,7 +33,7 @@ namespace Manasoup
         private PlayerBase _player;
         private float _timer;
 
-        public PlayerDirection currentDirection;
+        public Direction currentDirection;
 
         void Start()
         {
@@ -81,7 +81,7 @@ namespace Manasoup
             }
         }
 
-        private Transform GetAttackPoint(PlayerDirection dir)
+        private Transform GetAttackPoint(Direction dir)
         {
             foreach (var e in directionToTransforms)
             {

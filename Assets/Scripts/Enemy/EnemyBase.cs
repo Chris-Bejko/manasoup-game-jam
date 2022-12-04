@@ -8,12 +8,10 @@ namespace Manasoup.AI
         public int Health { get; set; }
 
         public int MaxHealth;
-        [SerializeField]
         public int _enemyRoom;
-        [SerializeField]
-        Rigidbody2D _thisRigidbody;
+        public Rigidbody2D _thisRigidbody;
         public bool isDead;
-
+        public Animator _animator;
         public virtual void Init()
         {
             Health = MaxHealth;

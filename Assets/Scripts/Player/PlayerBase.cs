@@ -48,11 +48,5 @@ namespace Manasoup
         }
     }
 
-    public enum PlayerDirection
-    {
-        Left,
-        Right,
-        Up,
-        Down
-    }
+ 
 }

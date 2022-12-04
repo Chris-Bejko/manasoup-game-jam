@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 136
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,6 +71,66 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -80,7 +140,763 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Monster_Animations_0
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 4478
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d15c23e619ac748984a9d930e4ffa1
+      internalID: -1853271185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_1
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 4508
+        width: 435
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac256200871d194bb465dbeeec73c5d
+      internalID: 1417434968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_2
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 4488
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 994652e190c22984eb455894e756cffc
+      internalID: -1688429436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_3
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 4498
+        width: 435
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda871271572145498a408f0dffc95d7
+      internalID: -113953555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_4
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 4488
+        width: 375
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d2b79cd6f08974a99d7b36dee4cf4a
+      internalID: -1710402757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_5
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 4478
+        width: 375
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0ae2591f590f740b97eec57b41d5a1
+      internalID: -1425613690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_6
+      rect:
+        serializedVersion: 2
+        x: 3968
+        y: 4508
+        width: 375
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ef5535a5715db4cabb0a589d0dead2
+      internalID: -759041270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_7
+      rect:
+        serializedVersion: 2
+        x: 4598
+        y: 4478
+        width: 375
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91784d76c0a0cc9408971ece67251be1
+      internalID: 1871042375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 3838
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f0f0e46c80d374da76fe7908a2909f
+      internalID: -604673217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_9
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 3868
+        width: 435
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac50fa6fbad88124bbc0e3bae334a6bc
+      internalID: -1968027096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_10
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 3848
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b330e7c63853844aabb23da6de6078a
+      internalID: -389711103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_11
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 3858
+        width: 435
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6b20a73d749354e9c3382ac307de55
+      internalID: -1686701722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_12
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3838
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ceaae555bf415442a59998ebadfb193
+      internalID: -1950143692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 3838
+        width: 375
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f0864a97f5e1144b80c00818e2852e
+      internalID: 1849075880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_14
+      rect:
+        serializedVersion: 2
+        x: 3968
+        y: 3868
+        width: 375
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3138bd469473643a7287f7fa976584
+      internalID: -189770318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_15
+      rect:
+        serializedVersion: 2
+        x: 4598
+        y: 3838
+        width: 375
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0df84b0e71787d46859bb788d154015
+      internalID: 647542292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2558
+        width: 505
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8ee587f08263e40a223e26fc2dc3d1
+      internalID: -2053120822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_17
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 2558
+        width: 595
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20044d8b7bec86c45b2cdc077fbd2efb
+      internalID: 2001979963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_18
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 2558
+        width: 595
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf6b2e00963d184c9b5d17ab1a759d0
+      internalID: -685331378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_19
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 2548
+        width: 505
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b25fb3ad5373b44b709ced54cce260
+      internalID: -2030711930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_20
+      rect:
+        serializedVersion: 2
+        x: 2678
+        y: 2548
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd88051a5f58604f895e39f29a7bd6d
+      internalID: -89388795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1918
+        width: 505
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30a945132600554cbb12bc27564cea2
+      internalID: -1497816441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_22
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 1918
+        width: 595
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b5df22e63e18f4a8a5006a08487972
+      internalID: -2125277570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1278
+        width: 375
+        height: 645
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b9ce2163a28e94ea6e66ab7c02edc3
+      internalID: 1944936545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_24
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 1918
+        width: 595
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4409ad018cd97d242815c0b33bb0737f
+      internalID: 353667077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_25
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1278
+        width: 375
+        height: 645
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7b2e634006efe4b81d5c7bd7666423
+      internalID: -1543828773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_26
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 1908
+        width: 505
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6880c25e3059bb44892425ce8f646ad6
+      internalID: 972072645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_27
+      rect:
+        serializedVersion: 2
+        x: 2648
+        y: 1908
+        width: 435
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc53756c196b3649a2f3fbe5a13dc61
+      internalID: 1126213482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1278
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcefb7219b0d4de4983052af00e3f0db
+      internalID: -105257077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_29
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1268
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457484f9aa6442741b9a14bdf44c0502
+      internalID: -1686821964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_30
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1268
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3232d3cc44ad1064587077d9567e786e
+      internalID: 323234783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 638
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e91fe064e322e2418e5287cae48f425
+      internalID: 868221674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_32
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 638
+        width: 375
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f853f750dff7ab47a16ea7e7847ad21
+      internalID: 1176223516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_33
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 638
+        width: 375
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adfa44e217f86946aadfbcce4dfe729
+      internalID: 1021779352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_34
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 628
+        width: 375
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797d179c9d261064295fdff6a30e6d9d
+      internalID: 333543874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Animations_35
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 638
+        width: 375
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef79ffc2bec81f4aa9211384af31ef1
+      internalID: -54588388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -91,7 +907,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Monster_Animations_33: 1021779352
+      Monster_Animations_31: 868221674
+      Monster_Animations_23: 1944936545
+      Monster_Animations_28: -105257077
+      Monster_Animations_5: -1425613690
+      Monster_Animations_35: -54588388
+      Monster_Animations_2: -1688429436
+      Monster_Animations_9: -1968027096
+      Monster_Animations_29: -1686821964
+      Monster_Animations_12: -1950143692
+      Monster_Animations_26: 972072645
+      Monster_Animations_4: -1710402757
+      Monster_Animations_25: -1543828773
+      Monster_Animations_16: -2053120822
+      Monster_Animations_11: -1686701722
+      Monster_Animations_0: -1853271185
+      Monster_Animations_20: -89388795
+      Monster_Animations_10: -389711103
+      Monster_Animations_18: -685331378
+      Monster_Animations_17: 2001979963
+      Monster_Animations_13: 1849075880
+      Monster_Animations_24: 353667077
+      Monster_Animations_30: 323234783
+      Monster_Animations_1: 1417434968
+      Monster_Animations_27: 1126213482
+      Monster_Animations_3: -113953555
+      Monster_Animations_15: 647542292
+      Monster_Animations_6: -759041270
+      Monster_Animations_8: -604673217
+      Monster_Animations_32: 1176223516
+      Monster_Animations_22: -2125277570
+      Monster_Animations_14: -189770318
+      Monster_Animations_19: -2030711930
+      Monster_Animations_7: 1871042375
+      Monster_Animations_21: -1497816441
+      Monster_Animations_34: 333543874
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

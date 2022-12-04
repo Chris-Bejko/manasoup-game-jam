@@ -84,13 +84,13 @@ namespace Manasoup
         {
             _player._animator.SetFloat("Direction", (int)_player._playerCombat.currentDirection);
             if (_vertical < 0)
-                _player._playerCombat.currentDirection = PlayerDirection.Down;
+                _player._playerCombat.currentDirection = Direction.Down;
             if (_vertical > 0)
-                _player._playerCombat.currentDirection = PlayerDirection.Up;
+                _player._playerCombat.currentDirection = Direction.Up;
             if (_horizontal > 0)
-                _player._playerCombat.currentDirection = PlayerDirection.Right;
+                _player._playerCombat.currentDirection = Direction.Right;
             if (_horizontal < 0)
-                _player._playerCombat.currentDirection = PlayerDirection.Left;
+                _player._playerCombat.currentDirection = Direction.Left;
         }
     }
 }
