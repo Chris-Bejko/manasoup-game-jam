@@ -70,5 +70,13 @@ namespace Manasoup.Character
             }
             return null;
         }
+
+        public void SetVolume(float volume)
+        {
+            foreach(var e in _enemies)
+            {
+                e.GetComponent<CharacterCombat>().SetVolume(volume);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Manasoup.UI
         [SerializeField]
         Slider enemySlider;
 
-        CharacterBase currentEnemy;        
+        CharacterBase currentEnemy;
 
         private void OnEnable()
         {
@@ -49,6 +49,8 @@ namespace Manasoup.UI
             if (currentEnemy == null)
                 return;
 
+
+            enemySlider.maxValue = GameManager.Instance.enemiesManager.GetEnemyByRoom(room).MaxHealth;
             enemySlider.gameObject.SetActive(true);
             enemySlider.value = enemySlider.maxValue;
         }
@@ -61,7 +63,7 @@ namespace Manasoup.UI
 
         public void OnGameStateChange(GameManager.GameState state)
         {
-            if(state == GameManager.GameState.Lost)
+            if (state == GameManager.GameState.Lost)
             {
                 enemySlider.gameObject.SetActive(false);
                 playerSlider.gameObject.SetActive(false);

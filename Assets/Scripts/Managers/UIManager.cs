@@ -102,7 +102,7 @@ namespace Manasoup.UI
         MainMenu,
         Settings,
         LostMenu,
-
+        WinMenu
         //Keep it going here
 
     }

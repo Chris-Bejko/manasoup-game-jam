@@ -220,5 +220,10 @@ namespace Manasoup.Character
             HealingDone?.Invoke();
             
         }
+
+        public void SetVolume(float volume)
+        {
+            _source.volume = volume;
+        }
     }
 }

@@ -84,5 +84,10 @@ namespace Manasoup.Character
             }
             return null;
         }
+
+        public void SetVolume(float volume)
+        {
+            _audioSource.volume = volume;
+        }
     }
 }
