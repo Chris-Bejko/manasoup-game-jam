@@ -12,7 +12,7 @@ public class RoomTrigger : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        GameManager.Instance.player.currentRoom = roomID;
+        GameManager.Instance.player._currentRoom = roomID;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -20,6 +20,6 @@ public class RoomTrigger : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        GameManager.Instance.player.currentRoom = 0;
+        GameManager.Instance.player._currentRoom = 0;
     }
 }

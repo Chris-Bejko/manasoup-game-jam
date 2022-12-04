@@ -3,6 +3,7 @@ using UnityEngine;
 using Manasoup.UI;
 using System.Collections.Generic;
 using Manasoup.AI;
+using Manasoup.Character;
 
 namespace Manasoup
 {
@@ -10,7 +11,7 @@ namespace Manasoup
     {
         public static GameManager Instance;
 
-        public PlayerBase player;
+        public CharacterBase player;
         public UIManager uIManager;
         public EnemyManager enemiesManager;
         public static event Action<GameState> OnGameStateChanged;
@@ -114,4 +115,12 @@ public enum Direction
     Right,
     Up,
     Down
+}
+
+
+[System.Serializable]
+public class DirectionToTransform
+{
+    public Direction dir;
+    public Transform attackPoint;
 }

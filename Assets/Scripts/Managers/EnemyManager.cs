@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Manasoup.Character;
 
 namespace Manasoup.AI
 {
     public class EnemyManager : MonoBehaviour
     {
 
-        public List<EnemyBase> _enemies;
+        public List<CharacterBase> _enemies;
 
         void OnGameStateChanged(GameManager.GameState state)
         {
@@ -17,11 +18,16 @@ namespace Manasoup.AI
 
         void InitEnemies()
         {
-            _enemies = FindObjectsOfType<EnemyBase>().ToList();
+            CharacterBase player = null;
+            _enemies = FindObjectsOfType<CharacterBase>().ToList();
             foreach(var e in _enemies)
             {
                 e.Init();
+                if (e._isPlayer)
+                    player = e;
             }
+            if (player != null)
+                _enemies.Remove(player);
 
         }
 
@@ -39,7 +45,7 @@ namespace Manasoup.AI
             int i = 0;
             foreach(var e in _enemies)
             {
-                if (e.isDead)
+                if (e._isDead)
                     i++;
             }
             if (i == _enemies.Count)
