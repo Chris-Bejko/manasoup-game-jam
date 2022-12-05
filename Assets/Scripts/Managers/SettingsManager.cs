@@ -14,8 +14,6 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     Slider MusicSlider;
 
-    [SerializeField]
-    AudioSource MusicPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +52,7 @@ public class SettingsManager : MonoBehaviour
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.player.SetVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.enemiesManager.SetVolume);
         SFXSlider.onValueChanged.AddListener(UpdateSFXPrefs);
-        MusicSlider.onValueChanged.AddListener(SetMusicVolume);
+        MusicSlider.onValueChanged.AddListener(GameManager.Instance.MusicPlayer.SetVolume);
     }
 
 
@@ -62,8 +60,5 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("SFX", volume);
     }
-    void SetMusicVolume(float volume)
-    {
-        MusicPlayer.volume = volume;
-    }
+
 }

@@ -85,8 +85,13 @@ namespace Manasoup.Character
         }
         public void Init()
         {
+            Debug.LogError("InitCalled");
+            gameObject.SetActive(true);
             transform.position = _initialPosition.position;
             Health = MaxHealth;
+            if (_isPlayer)
+                _currentRoom = 0;
+
         }
         private void GetInput()
         {
@@ -206,13 +211,13 @@ namespace Manasoup.Character
 
         private void SetAIDirection()
         {
-            if (_dir.y > 0)
+            if (_dir.y > 0.1)
                 _direction = Direction.Up;
-            if (_dir.y < 0)
+            if (_dir.y < -.1)
                 _direction = Direction.Down;
-            if (_dir.x < -.3)
+            if (_dir.x < -.1)
                 _direction = Direction.Left;
-            if (_dir.x > .3)
+            if (_dir.x > .1)
                 _direction = Direction.Right;
 
 

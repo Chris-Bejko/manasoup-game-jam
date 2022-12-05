@@ -13,6 +13,7 @@ namespace Manasoup
         public CharacterBase player;
         public UIManager uIManager;
         public EnemyManager enemiesManager;
+        public Singleton MusicPlayer;
         public static event Action<GameState> OnGameStateChanged;
 
         public Collider2D BossCollider;

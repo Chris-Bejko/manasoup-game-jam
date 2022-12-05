@@ -148,8 +148,6 @@ GameObject:
   - component: {fileID: 4803476359205838825}
   - component: {fileID: 434431156005979157}
   - component: {fileID: 2646985158796801427}
-  - component: {fileID: 9091919909590546112}
-  - component: {fileID: 7090182306888543756}
   m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
@@ -258,34 +256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 434431156005979157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &9091919909590546112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982876419110257186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c583169fe2b6ff47b18bd835790ad9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateToHandle: 2
---- !u!114 &7090182306888543756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982876419110257186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f6adb46b3ddf6a4aa87e685cc141b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenToOpen: 1
-  isBackButton: 0
+      m_Calls:
+      - m_Target: {fileID: 7164749725438034021}
+        m_TargetAssemblyTypeName: Manasoup.UI.MainMenu, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7164749725438034023
 GameObject:
   m_ObjectHideFlags: 0
