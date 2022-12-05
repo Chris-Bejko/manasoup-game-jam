@@ -13,7 +13,6 @@ namespace Manasoup
         public CharacterBase player;
         public UIManager uIManager;
         public EnemyManager enemiesManager;
-        public Singleton MusicPlayer;
         public static event Action<GameState> OnGameStateChanged;
 
         public Collider2D BossCollider;
@@ -89,7 +88,7 @@ namespace Manasoup
         public void StateWon()
         {
             uIManager.FadePanel();
-            //uIManager.ChangeScreen(UIScreenID.WonMenu);
+            uIManager.ChangeScreen(UIScreenID.WinMenu);
         }
 
         public void StateLost()

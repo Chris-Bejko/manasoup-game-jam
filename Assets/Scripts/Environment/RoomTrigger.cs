@@ -15,6 +15,15 @@ public class RoomTrigger : MonoBehaviour
             return;
 
         GameManager.Instance.player._currentRoom = roomID;
+
+        if(roomID == GameManager.Instance.RoomCount)
+        {
+            GameManager.Instance.ChangeState(GameManager.GameState.Won);
+            return;
+        }
+        if (GameManager.Instance.enemiesManager.GetEnemyByRoom(roomID) == null)
+            return;
+
         if (GameManager.Instance.enemiesManager.GetEnemyByRoom(roomID)._isDead)
             return;
 

@@ -85,7 +85,6 @@ namespace Manasoup.Character
         }
         public void Init()
         {
-            Debug.LogError("InitCalled");
             gameObject.SetActive(true);
             transform.position = _initialPosition.position;
             Health = MaxHealth;
@@ -129,8 +128,6 @@ namespace Manasoup.Character
         public void TakeDamage(int damage)
         {
             Health -= damage;
-            if(_isPlayer)
-                Debug.LogError(Health);
             if (Health <= 0)
             {
                 _isDead = true;

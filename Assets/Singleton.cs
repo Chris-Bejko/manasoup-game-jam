@@ -8,7 +8,7 @@ public class Singleton : MonoBehaviour
     [SerializeField]
     AudioSource MusicPlayer;
 
-    Singleton Instance;
+    public static Singleton Instance;
 
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class Singleton : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-
         MusicPlayer.volume = volume;
     }
 }

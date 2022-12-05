@@ -45,20 +45,28 @@ public class SettingsManager : MonoBehaviour
         SFXSlider.SetValueWithoutNotify(sfx);
         MusicSlider.SetValueWithoutNotify(music);
         GameManager.Instance.uIManager.SetUIVolume(PlayerPrefs.GetFloat("SFX"));
-        SFXSlider.onValueChanged?.Invoke(sfx);
-        MusicSlider.onValueChanged?.Invoke(music);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.uIManager.SetUIVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.player.GetComponent<CharacterCombat>().SetVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.player.SetVolume);
         SFXSlider.onValueChanged.AddListener(GameManager.Instance.enemiesManager.SetVolume);
+        MusicSlider.onValueChanged.AddListener(Singleton.Instance.SetVolume);
+
         SFXSlider.onValueChanged.AddListener(UpdateSFXPrefs);
-        MusicSlider.onValueChanged.AddListener(GameManager.Instance.MusicPlayer.SetVolume);
+        MusicSlider.onValueChanged.AddListener(UpdateMusicPrefs);
+        SFXSlider.onValueChanged?.Invoke(sfx);
+        MusicSlider.onValueChanged?.Invoke(music);
+
     }
 
 
     void UpdateSFXPrefs(float volume)
     {
         PlayerPrefs.SetFloat("SFX", volume);
+    }
+
+    void UpdateMusicPrefs(float volume)
+    {
+        PlayerPrefs.SetFloat("Music", volume);
     }
 
 }
